@@ -1,0 +1,52 @@
+Sub Alphastock()
+Dim tickername As String
+
+Dim tickerboxrow As Integer
+tickerboxrow = 1
+
+Dim yearlychangeprice As Integer
+
+
+Dim yearlychangepercent As Integer
+
+
+'loop thru every entry
+
+    
+    For r = 1 To 22771
+'check if we are still within the same ticker
+
+    If Cells(r + 1, 1) <> Cells(r, 1) Then
+'set the tickername
+    
+    tickername = Cells(r, 1)
+    'print the ticker in the summary table
+    
+    Cells(tickerboxrow, 9) = tickername
+     
+     'print the total amount in summary
+     
+            Dim totalvolume As Integer
+            totalvolume = 0
+     Range("j" & tickerboxrow).Value = totalvolume
+    tickerboxrow = tickerboxrow + 1
+ 
+     'totalvolume = totalvolume + Cells(r, 7).Value
+     
+    
+    yearlychangepercent = Cells(tickerboxrow - 1, 11)
+    
+End If
+
+Cells(r, 9).Value = Cells(r, 1).Value
+
+   
+    
+Next r
+
+
+
+
+
+
+End Sub
